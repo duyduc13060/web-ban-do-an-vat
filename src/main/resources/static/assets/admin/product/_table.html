@@ -1,0 +1,45 @@
+<div class="card">
+   <div class="card-header">
+        Product List
+   </div>
+   <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Date</th>
+                <th>Image</th>
+                <th>Category</th>
+                <th>Avaliable</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="p in pager.items">
+                <td>{{p.id}}</td>
+                <td>{{p.name}}</td>
+                <td>{{p.price | number:2}}</td>
+                <td>{{p.createDate | date:'dd-MM-yyyy'}}</td>
+                <td>{{p.image}}</td>
+                <td>{{p.category.name}}</td>
+                <td>{{p.available == 'true' ? 'Yes':'No'}}</td>
+                <td>
+                    <button ng-click="edit(p)" class="btn btn-danger">edit</button>
+                    <button ng-click="delete(p)" class="btn btn-primary">delete</button>
+                </td> 
+            </tr>
+        </tbody>
+   </table>
+   <div class="card-footer">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a ng-click="pager.first()" class="page-link">First</a></li>
+          <li class="page-item"><a ng-click="pager.prev()" class="page-link">Previous</a></li>
+          <li class="page-item"><a class="page-link">{{pager.page + 1}} of {{pager.count}}</a></li>
+          <li class="page-item"><a ng-click="pager.next()" class="page-link">Next</a></li>
+          <li class="page-item"><a ng-click="pager.last()" class="page-link">Last</a></li>
+        </ul>
+      </nav>
+   </div>
+  </div>

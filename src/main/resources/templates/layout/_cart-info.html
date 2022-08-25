@@ -1,0 +1,5 @@
+<div class="card mb-2">
+  <div class="card-body">
+    <a th:href="@{/cart/view}">{{cart.count}} items x ${{cart.amount|number :2}}</a>
+  </div>
+</div>
